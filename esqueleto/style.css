@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e3ddcf;
+}
+.cardapio {
+   background: #f0ece1;
+   display: flex;
+   flex-flow: row wrap;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   padding: 10px;
+   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+   z-index: 1000;
+}
+
+.cardapio-menu img {
+    width: 120px;      /* largura fixa */
+    height: 80px;      /* altura fixa */
+    object-fit: cover; /* 👈 corta sem distorcer */
+    border-radius: 10px;
+    margin: 50px;       /* espaço entre elas */
+}
+
+.container-lanches {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between; /* 👈 espalha */
+  width: 100%;
+}
+
+/* todos os lanches */
+.comida {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background: #f0ece1;
+  border-radius: 15px;
+  padding: 15px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 300px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.comida img {
+  width: 100%;        
+  height: 120px;
+  object-fit: cover;  
+  border-radius: 10px;
+  margin-bottom: 10px; 
+  
+}
+
+/* parte inferior da tela */
+.container-emoji {
+  display: flex;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.emoji {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 15px;
+  background: #f0ece1;
+  border-radius: 15px;
+  padding: 15px;
+   margin-left: 50px;
+  margin-right: 50px;
+}
+
+.emoji img {
+  width: 100px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #652A0E;
+   margin-left: 50px;
+}
+
+h2 {
+  color: #652A0E;
+}
