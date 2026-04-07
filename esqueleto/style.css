@@ -1,91 +1,155 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #e3ddcf;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #e3ddcf;
+  color: #652A0E;
 }
+
+/* TOPO */
 .cardapio {
-   background: #f0ece1;
-   display: flex;
-   flex-flow: row wrap;
-   align-items: center;
-   justify-content: center;
-   width: 100%;
-   padding: 10px;
-   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-   z-index: 1000;
+  background: #f0ece1;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.cardapio-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
 }
 
 .cardapio-menu img {
-    width: 120px;      /* largura fixa */
-    height: 80px;      /* altura fixa */
-    object-fit: cover; /* 👈 corta sem distorcer */
-    border-radius: 10px;
-    margin: 50px;       /* espaço entre elas */
+  width: 135px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+
 }
 
+/* TÍTULOS */
+h1 {
+  margin: 30px 0 10px 50px;
+  font-size: 32px;
+}
+
+/* CONTAINER DE LANCHES */
 .container-lanches {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
-  justify-content: space-between; /* 👈 espalha */
-  width: 100%;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px;
 }
 
-/* todos os lanches */
+/* CARD INDIVIDUAL */
 .comida {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
   background: #f0ece1;
   border-radius: 15px;
-  padding: 15px; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 300px;
-  margin-left: 50px;
-  margin-right: 50px;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
 }
 
 .comida img {
-  width: 100%;        
-  height: 120px;
-  object-fit: cover;  
-  border-radius: 10px;
-  margin-bottom: 10px; 
-  
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
-/* parte inferior da tela */
+.comida:hover {
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ALINHAMENTO DO H2 COM O BOTÃO */
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  /* Título na esquerda, Botão na direita */
+  align-items: center;
+  /* Alinha verticalmente ao centro */
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.info-header h2 {
+  font-size: 20px;
+  margin: 0;
+  /* Remove margens para não quebrar o flex */
+  color: #652A0E;
+}
+
+/* BOTÃO CARRINHO */
+.btn-carrinho {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.btn-carrinho:hover {
+  transform: scale(1.1);
+}
+
+/* DESCRIÇÃO */
+.comida p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* EMOJIS INFERIORES */
 .container-emoji {
   display: flex;
-  width: 100%;
-  margin-top: 50px;
+  justify-content: center;
+  margin: 40px 0;
 }
 
 .emoji {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  gap: 15px;
-  background: #f0ece1;
+  gap: 80px;
+  background: #e6dbc4c9;
+  padding: 20px;
   border-radius: 15px;
-  padding: 15px;
-   margin-left: 50px;
-  margin-right: 50px;
+  position: fixed;
+  bottom: 20px;    
+  left: 50%;        
+  transform: translateX(-50%); 
+  z-index: 1000;  
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);  
 }
 
 .emoji img {
-  width: 100px;
-  height: 150px;
-  border-radius: 10px;
+  width: 75px;
+  height: 75px;
 }
 
-h1 {
-  color: #652A0E;
-   margin-left: 50px;
+.btn-emoji {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: #f0ece1;
 }
 
-h2 {
-  color: #652A0E;
+.btn-emoji:hover {
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
