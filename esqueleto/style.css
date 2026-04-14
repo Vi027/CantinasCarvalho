@@ -1,95 +1,115 @@
+/* Cores padrão (Modo Claro) */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
   background: #e3ddcf;
   color: #652A0E;
 }
 
-/* O container bege deve ocupar a largura disponível */
+
+/* Impedir arrastar fotos */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Container Bege */
 .cardapio {
   background: #f0ece1;
   border-radius: 20px;
-  padding: 15px 10px; /* Reduzi o padding lateral */
+  padding: 15px 10px;
   margin: 20px;
-  width: auto; /* Deixa ele expandir */
 }
 
-/* 1. Ajuste no container (Removi o padding lateral das setas) */
 .cardapio-trilho {
   display: flex;
   justify-content: space-between; 
   align-items: center;
-  gap: 10px;
-  padding: 10px 0; /* Agora sem as setas, não precisa de 45px nas laterais */
+  gap: 8px;
+  padding: 10px 30px;
+  width: 100%;
 }
 
-/* 2. Ajuste no Card Item */
 .card-item {
   position: relative;
-  /* flex: 1 permite que eles cresçam para ocupar o espaço bege total */
-  flex: 1 1 180px; 
-  
-  /* Ajuste estas larguras para o tamanho que você deseja que a foto tenha */
-  max-width: 200px;  /* Não deixa ficar gigante em telas grandes */
-  min-width: 140px;  /* Não deixa "esmagar" em telas menores */
-  
-  height: 120px;     /* Altura quadrada costuma funcionar melhor para pratos */
+  flex: 0 0 calc(16.66% - 8px); 
+  max-width: 200px;
+  height: 140px;
   border-radius: 20px;
   overflow: hidden; 
-  box-shadow: 0 4px 8px rgba(201, 183, 183, 0.1);
-  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* IMPORTANTE: Adicione isso para a imagem preencher o card novo */
 .card-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Faz a foto cortar sem esticar */
-  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-/* 3. A DESCRIÇÃO (Adicione este bloco completo) */
+.card-item:hover img { transform: scale(1.1); }
+
+/* Descrição no Hover */
 .card-item .descricao {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.75); /* Fundo preto transparente */
+  background: rgba(0, 0, 0, 0.75);
   color: #fff;
-  padding: 10px;
+  padding: 8px;
   text-align: center;
-  
-  /* ESCONDE A DESCRIÇÃO: Empurra ela 100% para baixo */
   transform: translateY(100%); 
   transition: transform 0.3s ease-in-out;
 }
 
-.card-item .descricao h3 {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #f0ece1;
+.card-item:hover .descricao { transform: translateY(0); }
+
+/* VELOCIDADE DO CARROSSEL */
+.carousel-item {
+  transition: transform 1.2s ease-in-out !important;
 }
 
-.card-item .descricao p {
-  margin: 2px 0 0;
-  font-size: 0.8rem;
+/* RODAPÉ E BOLINHAS (Ajustado) */
+.carousel-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-/* 4. O EFEITO HOVER (Adicione isso para a descrição subir) */
-.card-item:hover .descricao {
-  transform: translateY(0); /* Faz a descrição voltar para a posição original */
+.carousel-indicators {
+  position: relative !important;
+  margin: 0 !important;
+  display: flex !important;
+  gap: 10px;
 }
 
-/* Efeito opcional de zoom na imagem */
-.card-item:hover img {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+.carousel-indicators .dot {
+  width: 15px !important;      /* Tamanho que você pediu */
+  height: 15px !important;
+  border-radius: 50% !important;
+  background-color: #d2c8b4 !important;
+  border: none !important;
+  opacity: 1 !important;
+  cursor: pointer;
 }
 
-/* 5. REMOVER AS SETAS (Caso ainda estejam no HTML) */
-.carousel-control-prev, .carousel-control-next {
-    display: none !important;
+.carousel-indicators .active.dot {
+  background-color: #805c4c !important;
 }
+
+.btn-nav {
+  background: #e6dec9;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  color: #4b3621;
+  cursor: pointer;
+}
+
+/* Esconder setas padrão */
+.carousel-control-prev, .carousel-control-next { display: none !important; }
+
+/* O restante do seu CSS de Lanches e Emojis continua aqui... */
 
 /* Rodapé encostado nas bordas */
 .carousel-footer {
@@ -146,9 +166,12 @@ body {
 }
 
 /* TÍTULOS */
-h1 {
-  margin: 30px 0 10px 50px;
-  font-size: 32px;
+/* Isso vai garantir que TODO h1 do site, inclusive dentro do carrossel, fique marrom */
+h1, .carousel-item h1 {
+    color: #652A0E !important;
+    margin: 30px 0 10px 50px;
+    font-size: 32px;
+    font-weight: bold; /* Para garantir que fique igual à imagem */
 }
 
 /* CONTAINER DE LANCHES */
@@ -266,4 +289,73 @@ h1 {
 .btn-emoji:hover {
   transform: translateY(-2px); 
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* MUDAR PARA O TEMA ESCURO */
+ 
+.btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+ 
+/* checkbox do Botão */
+ 
+.checkbox {
+    opacity: 0; /* checkbox real está escondido */
+    position: absolute;
+}
+ 
+/* Corpo do Botão */
+ 
+.label {
+    background-color: #e3d4ba;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+    transform: scale(1.5);
+ 
+}
+ 
+.tema-escuro .label {
+    background-color: var(--btn-toggle-bg);
+}
+ 
+.tema-escuro .label .indicador{
+    background-color: #F0ECE1;
+}
+ 
+ 
+/* Indicador do Botão */
+ 
+.label .indicador {
+    background-color: #3a231a;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;  
+    transition: transform 0.2s linear; /* transição do deslizamento do indicador */
+}
+ 
+ 
+/* Transição do Indicador (Bolinha Branca) */
+/* O sinal de "+" seleciona o elemento que vem LOGO APÓS o input (.label). */
+ 
+#botao-tema:checked + .label .indicador {
+    transform: translateX(24px); /* o indicador desliza 24px para a direita */
+}
+ 
+/* Imagens do Botão  */
+ 
+.img-lua, .img-sol{
+    width: 16px;
+    height: 16px;
 }
