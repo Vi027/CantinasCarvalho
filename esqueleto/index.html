@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Cantinas Carvalho</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-   <div class="btn">
+
+    <div class="botao-escuro">
         <input type="checkbox" class="checkbox" id="botao-tema" />
         <label class="label" for="botao-tema">
             <img src="./img/sol.png" alt="Sol" class="img-sol">
@@ -19,282 +19,120 @@
         </label>
     </div>
 
-    <header class="cardapio">
-        <div id="carouselAlmoco" class="carousel slide" data-bs-ride="false">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <h1>Cardápio do Dia</h1>
-                    <div class="cardapio-trilho">
-                        <div class="card-item">
-                            <img src="./img/prato1.avif" alt="Prato 1">
-                            <div class="descricao">
-                                <h3>Arroz Branco</h3>
-                                <p>Soltinho e Temperado.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/prato6.jpg" alt="Prato 6">
-                            <div class="descricao">
-                                <h3>Feijão</h3>
-                                <p>Completa.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/prato2.png" alt="Prato 2">
-                            <div class="descricao">
-                                <h3>Espaguete</h3>
-                                <p>Ao molho sugo.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/prato3.jpg" alt="Prato 2">
-                            <div class="descricao">
-                                <h3>Lasanha</h3>
-                                <p>Bem Recheada e Suculento.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/prato4.jpg" alt="Prato 1">
-                            <div class="descricao">
-                                <h3>Salada</h3>
-                                <p>Bem Temperada.</p>
-                            </div>
-                        </div>
-                        <div class="card-item">
-                            <img src="./img/prato5.jpg" alt="Prato 2">
-                            <div class="descricao">
-                                <h3>Nhoque</h3>
-                                <p>Massa Caseira.</p>
-                            </div>
-                        </div>
+    <main class="container">
+        
+        <section class="secao-cardapio">
+            <h1 class="titulo">Cardápio do dia</h1>
+            <div class="cardapio-box">
+                <div class="trilho">
+                    <div class="item-mini">
+                        <img src="./img/prato1.avif" alt="Prato 1">
                     </div>
-                </div>
-
-                <div class="carousel-item">
-                    <h1>Cardápio do Dia</h1>
-                    <div class="cardapio-trilho">
-                        <div class="card-item">
-                            <img src="./img/strogonoff.png" alt="Prato 5">
-                            <div class="descricao">
-                                <h3>Strogonoff de Frango</h3>
-                                <p>Bem Temperada e Cremosa.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/prato7.webp" alt="Prato 6">
-                            <div class="descricao">
-                                <h3>Batata Frita</h3>
-                                <p>Crocante.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/prato8.jpg" alt="Prato 7">
-                            <div class="descricao">
-                                <h3>Frango Assado</h3>
-                                <p>Suculento.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/costela.png" alt="Prato 8">
-                            <div class="descricao">
-                                <h3>Costela</h3>
-                                <p>Suculento e com Molho da Casa.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/carnePanela.png" alt="Prato 1">
-                            <div class="descricao">
-                                <h3>Carne de Panela</h3>
-                                <p>Soltinho e Temperado.</p>
-                            </div>
-                        </div>
-
-                        <div class="card-item">
-                            <img src="./img/peixeEmpanado.png" alt="Prato 2">
-                            <div class="descricao">
-                                <h3>Peixe Empanado</h3>
-                                <p>Crocante e Saboroso.</p>
-                            </div>
-                        </div>
-
+                    <div class="item-mini">
+                        <img src="./img/prato2.png" alt="Prato 2">
+                    </div>
+                    <div class="item-mini">
+                        <img src="./img/prato3.jpg" alt="Prato 3">
+                    </div>
+                    <div class="item-mini">
+                        <img src="./img/prato4.jpg" alt="Prato 4">
+                    </div>
+                    <div class="item-mini">
+                        <img src="./img/prato5.jpg" alt="Prato 5">
+                    </div>
+                    <div class="item-mini">
+                        <img src="./img/prato6.jpg" alt="Prato 6">
+                    </div>
+                    <div class="item-mini">
+                        <img src="./img/prato7.webp" alt="Prato 7">
+                    </div>
+                    <div class="item-mini">
+                        <img src="./img/prato8.jpg" alt="Prato 8">
                     </div>
                 </div>
             </div>
+        </section>
 
-            <button class="carousel-control-prev custom-arrow" type="button" ...>
-                <span class="arrow-circle">❮</span>
-            </button>
-            <button class="carousel-control-next custom-arrow" type="button" ...>
-                <span class="arrow-circle">❯</span>
-            </button>
-
-            <div class="carousel-footer">
-                <button class="btn-nav" data-bs-target="#carouselAlmoco" data-bs-slide="prev">❮ Anterior</button>
-
-                <div class="indicators">
-                    <span class="dot active" data-bs-target="#carouselAlmoco" data-bs-slide-to="0"></span>
-                    <span class="dot" data-bs-target="#carouselAlmoco" data-bs-slide-to="1"></span>
+        <section class="secao-lanches">
+            <h1 class="titulo">Lanches</h1>
+            <div class="grid-lanches">
+                
+                <div class="card-lanche">
+                    <img src="./img/misto-quente.avif" alt="Misto Quente">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Misto-quente</h3>
+                            <p>Pão francês, presunto, queijo...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
                 </div>
 
-                <button class="btn-nav" data-bs-target="#carouselAlmoco" data-bs-slide="next">Próximo ❯</button>
+                <div class="card-lanche">
+                    <img src="./img/pao-queijo.jpg" alt="Pão de Queijo">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Pão de queijo</h3>
+                            <p>Polvilho, queijo, leite, ovos...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/coxinha.avif" alt="Coxinha">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Coxinha</h3>
+                            <p>Massa de trigo com frango...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/esfirra.jpg" alt="Esfirra">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Esfirra</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    </header>
+        </section>
 
-    <h1>Lanches</h1>
-
-    <section class="container-lanches">
-
-        <div class="comida">
-            <img src="./img/misto-quente.avif" alt="Misto Quente">
-            <div class="info-header">
-                <h2>Misto-quente</h2>
-                <button class="btn-carrinho">🛒</button>
+        <nav class="menu-inferior">
+            <div class="menu-box">
+                <div class="icon-item logo">
+                    <img src="./img/logo.png" alt="Logo">
+                </div>
+                <button class="icon-item">
+                    <img src="./img/hamburguer.png" alt="Lanches">
+                </button>
+                <button class="icon-item">
+                    <img src="./img/almoco.png" alt="Almoço">
+                </button>
+                <button class="icon-item">
+                    <img src="./img/bebida.png" alt="Bebida">
+                </button>
+                <button class="icon-item">
+                    <img src="./img/sobremesas.png" alt="Sobremesa">
+                </button>
+                <button class="icon-item">
+                    <img src="./img/doces.png" alt="Doces">
+                </button>
+                <button class="icon-item">
+                    <img src="./img/carrinho.png" alt="Carrinho">
+                </button>
             </div>
-            <p>Pão francês, presunto, queijo...</p>
-        </div>
+        </nav>
 
-        <div class="comida">
-            <img src="./img/coxinha.avif" alt="Misto Quente">
-            <div class="info-header">
-                <h2>Coxinha</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Massa de trigo com frango...</p>
-        </div>
+    </main>
 
-        <div class="comida">
-            <img src="./img/pao-queijo.jpg" alt="Pão de Queijo">
-            <div class="info-header">
-                <h2>Pão de queijo</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Polvilho, queijo, leite, ovos...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/kibe.png" alt="Coxinha">
-            <div class="info-header">
-                <h2>Quibe</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Massa de trigo e carne bovina moída...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/esfirra.jpg" alt="Esfirra">
-            <div class="info-header">
-                <h2>Esfirra</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Massa de trigo com carne...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/lancheNatural.png" alt="Misto Quente">
-            <div class="info-header">
-                <h2>Lanche Natural</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Pão integral artesanal, recheado com peito de frango desfiado cremoso...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/boloChocolate.png" alt="Misto Quente">
-            <div class="info-header">
-                <h2>Bolo de Chocolate</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Fatia generosa de bolo de chocolate...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/hamburgao.png" alt="Pão de Queijo">
-            <div class="info-header">
-                <h2>Hamburguer de Forno</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Hambúrguer de forno, feito com massa de pão dourada...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/enroladinho.png" alt="Coxinha">
-            <div class="info-header">
-                <h2>Enroladinho de Presunto e Quiejo</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Enroladinho de massa caseira, recheado com presunto cozido e queijo...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/brigadeiro.png" alt="Esfirra">
-            <div class="info-header">
-                <h2>Brigadeiro Gourmet</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Feito com chocolate e leite condensado, moldado em formato generoso...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/enroladinhoSalsicha.png" alt="Esfirra">
-            <div class="info-header">
-                <h2>Enrolado de Salsicha</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Enroladinho de salsicha com massa artesanal, recheado com salsicha...</p>
-        </div>
-
-        <div class="comida">
-            <img src="./img/empada.png" alt="Esfirra">
-            <div class="info-header">
-                <h2>Empada</h2>
-                <button class="btn-carrinho">🛒</button>
-            </div>
-            <p>Empada artesanal com massa, recheada com um frango desfiado suculento...</p>
-        </div>
-
-    </section>
-
-    <section class="container-emoji">
-        <div class="emoji">
-            <img src="./img/logo.png" alt="Logo" class="logo-emoji">
-
-            <button class="btn-emoji">
-                <img src="./img/hamburguer.png" alt="Hambúrguer">
-            </button>
-
-            <button class="btn-emoji">
-                <img src="./img/almoco.png" alt="Almoço">
-            </button>
-
-            <button class="btn-emoji">
-                <img src="./img/bebida.png" alt="Bebida">
-            </button>
-
-            <button class="btn-emoji">
-                <img src="./img/sobremesas.png" alt="Sobremesas">
-            </button>
-
-            <button class="btn-emoji">
-                <img src="./img/doces.png" alt="Doces">
-            </button>
-
-            <button class="btn-emoji">
-                <img src="./img/carrinho.png" alt="carrinho">
-            </button>
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>

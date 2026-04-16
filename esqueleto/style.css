@@ -1,315 +1,220 @@
-/* Cores padrão (Modo Claro) */
+/* ============================================================
+   1. VARIÁVEIS DE CORES (MODO CLARO E ESCURO)
+   ============================================================ */
+:root {
+    --bg-body: #f5f1e6;         /* Bege clarinho do fundo */
+    --bg-card: #ece6d8;         /* Bege um pouco mais escuro dos cards */
+    --text-color: #652a0e;      /* Marrom café dos textos */
+    --shadow: rgba(0, 0, 0, 0.08); /* Sombra suave */
+    --btn-toggle: #4d2b1a;      /* Fundo do botão toggle */
+    --indicador: #f5f1e6;       /* Cor da bolinha do botão */
+    --btn-carrinho-bg: #f5f1e6;
+}
+
+/* Ativado via JavaScript */
+body.tema-escuro {
+    --bg-body: #1a110e;         /* Marrom quase preto */
+    --bg-card: #2d1d17;         /* Marrom escuro */
+    --text-color: #f5f1e6;      /* Texto claro */
+    --shadow: rgba(0, 0, 0, 0.4);
+    --btn-toggle: #f5f1e6;
+    --indicador: #4d2b1a;
+    --btn-carrinho-bg: #3a231a;
+}
+
+/* ============================================================
+   2. ESTILOS GERAIS
+   ============================================================ */
 body {
-  background: #e3ddcf;
-  color: #652A0E;
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-
-/* Impedir arrastar fotos */
-img {
-  -webkit-user-drag: none;
-  user-select: none;
-  -webkit-user-select: none;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 150px 20px; /* Espaço extra embaixo por causa do menu fixo */
 }
 
-/* Container Bege */
-.cardapio {
-  background: #f0ece1;
-  border-radius: 20px;
-  padding: 15px 10px;
-  margin: 20px;
-}
-
-.cardapio-trilho {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  gap: 8px;
-  padding: 10px 30px;
-  width: 100%;
-}
-
-.card-item {
-  position: relative;
-  flex: 0 0 calc(16.66% - 8px); 
-  max-width: 200px;
-  height: 140px;
-  border-radius: 20px;
-  overflow: hidden; 
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.card-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.card-item:hover img { transform: scale(1.1); }
-
-/* Descrição no Hover */
-.card-item .descricao {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  padding: 8px;
-  text-align: center;
-  transform: translateY(100%); 
-  transition: transform 0.3s ease-in-out;
-}
-
-.card-item:hover .descricao { transform: translateY(0); }
-
-/* VELOCIDADE DO CARROSSEL */
-.carousel-item {
-  transition: transform 1.2s ease-in-out !important;
-}
-
-/* RODAPÉ E BOLINHAS (Ajustado) */
-.carousel-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.carousel-indicators {
-  position: relative !important;
-  margin: 0 !important;
-  display: flex !important;
-  gap: 10px;
-}
-
-.carousel-indicators .dot {
-  width: 15px !important;      /* Tamanho que você pediu */
-  height: 15px !important;
-  border-radius: 50% !important;
-  background-color: #d2c8b4 !important;
-  border: none !important;
-  opacity: 1 !important;
-  cursor: pointer;
-}
-
-.carousel-indicators .active.dot {
-  background-color: #805c4c !important;
-}
-
-.btn-nav {
-  background: #e6dec9;
-  border: none;
-  border-radius: 20px;
-  padding: 5px 15px;
-  color: #4b3621;
-  cursor: pointer;
-}
-
-/* Esconder setas padrão */
-.carousel-control-prev, .carousel-control-next { display: none !important; }
-
-/* O restante do seu CSS de Lanches e Emojis continua aqui... */
-
-/* Rodapé encostado nas bordas */
-.carousel-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  margin-top: 10px;
-}
-
-.btn-nav {
-  background: #e6dec9;
-  border: none;
-  border-radius: 20px;
-  padding: 5px 15px;
-  color: #4b3621;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* Indicadores (Bolinhas) */
-.indicators {
-  display: flex;
-  gap: 10px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: #d2c8b4;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dot.active {
-  background: #805c4c;
-}
-
-/* Efeito de Descrição Hover */
-.descricao {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  transform: translateY(100%);
-  transition: 0.3s;
-  font-size: 10px;
-  padding: 5px;
-}
-
-.card-item:hover .descricao {
-  transform: translateY(0);
-}
-
-/* TÍTULOS */
-/* Isso vai garantir que TODO h1 do site, inclusive dentro do carrossel, fique marrom */
-h1, .carousel-item h1 {
-    color: #652A0E !important;
-    margin: 30px 0 10px 50px;
+.titulo {
     font-size: 32px;
-    font-weight: bold; /* Para garantir que fique igual à imagem */
+    margin: 20px 0;
+    font-weight: bold;
+    color: var(--text-color);
 }
 
-/* CONTAINER DE LANCHES */
-.container-lanches {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  padding: 20px;
+/* ============================================================
+   3. SEÇÃO CARDÁPIO SUPERIOR (CARROSSEL)
+   ============================================================ */
+.cardapio-box {
+    background: var(--bg-card);
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 50px;
+    transition: background-color 0.4s ease;
 }
 
-/* CARD INDIVIDUAL */
-.comida {
-  background: #f0ece1;
-  border-radius: 15px;
-  padding: 15px;
-  width: 280px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
+.trilho {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Permite scroll horizontal se houver muitos itens */
+    padding-bottom: 10px;
 }
 
-.comida img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
+/* Esconder barra de scroll em alguns navegadores */
+.trilho::-webkit-scrollbar { height: 5px; }
+.trilho::-webkit-scrollbar-thumb { background: var(--text-color); border-radius: 10px; }
+
+.item-mini img {
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
-.comida:hover {
-  transform: translateY(-2px); 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.item-mini img:hover {
+    transform: scale(1.05);
 }
 
-/* ALINHAMENTO DO H2 COM O BOTÃO */
-.info-header {
-  display: flex;
-  justify-content: space-between;
-  /* Título na esquerda, Botão na direita */
-  align-items: center;
-  /* Alinha verticalmente ao centro */
-  width: 100%;
-  margin-bottom: 8px;
+/* ============================================================
+   4. GRID DE LANCHES (CARDS)
+   ============================================================ */
+.grid-lanches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
 }
 
-.info-header h2 {
-  font-size: 20px;
-  margin: 0;
-  /* Remove margens para não quebrar o flex */
-  color: #652A0E;
+.card-lanche {
+    background: var(--bg-card);
+    border-radius: 25px;
+    padding: 15px;
+    box-shadow: 0 10px 25px var(--shadow);
+    transition: transform 0.3s ease, background-color 0.4s ease;
 }
 
-/* BOTÃO CARRINHO */
+.card-lanche:hover {
+    transform: translateY(-5px);
+}
+
+.card-lanche img {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding: 0 5px;
+}
+
+.card-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.card-info p {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
 .btn-carrinho {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.2s;
+    background: var(--btn-carrinho-bg);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
 }
 
 .btn-carrinho:hover {
-  transform: scale(1.1);
+    background: var(--text-color);
+    color: var(--bg-card);
 }
 
-/* DESCRIÇÃO */
-.comida p {
-  font-size: 14px;
-  color: #555;
-  margin: 0;
-  line-height: 1.4;
+/* ============================================================
+   5. MENU INFERIOR FIXO
+   ============================================================ */
+.menu-inferior {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
+    z-index: 1000;
 }
 
-/* EMOJIS INFERIORES */
-.container-emoji {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
+.menu-box {
+    background: var(--bg-card);
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 40px var(--shadow);
+    transition: background-color 0.4s ease;
 }
 
-.emoji {
-  display: flex;
-  gap: 80px;
-  background: #e6dbc4c9;
-  padding: 20px;
-  border-radius: 15px;
-  position: fixed;
-  bottom: 20px;    
-  left: 50%;        
-  transform: translateX(-50%); 
-  z-index: 1000;  
-   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);  
+.icon-item {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.emoji img {
-  width: 75px;
-  height: 75px;
+.icon-item img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
 }
 
-.btn-emoji {
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background: #f0ece1;
+.icon-item:hover {
+    transform: scale(1.15);
 }
 
-.btn-emoji:hover {
-  transform: translateY(-2px); 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+/* Estilo especial para a logo no menu */
+.icon-item.logo img {
+    width: 60px;
+    height: 60px;
 }
 
-/* MUDAR PARA O TEMA ESCURO */
- 
-.btn{
-    position: absolute;
-    top: 20px;
-    right: 20px;
+/* ============================================================
+   6. BOTÃO TOGGLE (SOL/LUA)
+   ============================================================ */
+.botao-escuro {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    z-index: 2000;
 }
- 
-/* checkbox do Botão */
- 
+
 .checkbox {
-    opacity: 0; /* checkbox real está escondido */
+    opacity: 0;
     position: absolute;
 }
- 
-/* Corpo do Botão */
- 
+
 .label {
-    background-color: #e3d4ba;
+    background-color: var(--btn-toggle);
     border-radius: 50px;
     cursor: pointer;
     display: flex;
@@ -317,45 +222,36 @@ h1, .carousel-item h1 {
     align-items: center;
     padding: 5px;
     position: relative;
-    height: 26px;
-    width: 50px;
-    transform: scale(1.5);
- 
+    height: 30px;
+    width: 60px;
+    transition: background-color 0.4s ease;
 }
- 
-.tema-escuro .label {
-    background-color: var(--btn-toggle-bg);
-}
- 
-.tema-escuro .label .indicador{
-    background-color: #F0ECE1;
-}
- 
- 
-/* Indicador do Botão */
- 
+
 .label .indicador {
-    background-color: #3a231a;
+    background-color: var(--indicador);
     border-radius: 50%;
     position: absolute;
-    top: 2px;
-    left: 2px;
-    height: 22px;
-    width: 22px;  
-    transition: transform 0.2s linear; /* transição do deslizamento do indicador */
+    top: 3px;
+    left: 3px;
+    height: 24px;
+    width: 24px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
- 
- 
-/* Transição do Indicador (Bolinha Branca) */
-/* O sinal de "+" seleciona o elemento que vem LOGO APÓS o input (.label). */
- 
+
 #botao-tema:checked + .label .indicador {
-    transform: translateX(24px); /* o indicador desliza 24px para a direita */
+    transform: translateX(30px);
 }
- 
-/* Imagens do Botão  */
- 
-.img-lua, .img-sol{
-    width: 16px;
-    height: 16px;
+
+.img-lua, .img-sol {
+    width: 18px;
+    height: 18px;
+}
+
+/* Ajuste de brilho para os ícones do menu no modo escuro */
+body.tema-escuro .icon-item img {
+    filter: brightness(0) invert(1); /* Deixa os ícones brancos no modo escuro */
+}
+/* Exceto a logo colorida */
+body.tema-escuro .icon-item.logo img {
+    filter: none;
 }
