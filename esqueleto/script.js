@@ -1,22 +1,49 @@
-// 1. Seleciona o checkbox do botão de tema
+// --- LÓGICA DO MODO ESCURO ---
 const botaoTema = document.getElementById('botao-tema');
-
-// 2. Adiciona um evento de escuta para quando o estado mudar (clicar)
 botaoTema.addEventListener('change', () => {
-    // 3. Adiciona ou remove a classe "tema-escuro" do corpo da página
     document.body.classList.toggle('tema-escuro');
-    
-    // Opcional: Salva a preferência do usuário no navegador
-    const isDarkMode = document.body.classList.contains('tema-escuro');
-    localStorage.setItem('dark-mode', isDarkMode);
 });
 
-// 4. Ao carregar a página, verifica se o usuário já tinha deixado no modo escuro antes
-window.addEventListener('load', () => {
-    const darkModeSalvo = localStorage.getItem('dark-mode');
+// --- LÓGICA DO CARROSSEL (DESLIZE MANUAL) ---
+const trilho = document.querySelector('.trilho');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const dots = document.querySelectorAll('.dot');
+
+// Define quanto cada clique vai deslizar (em pixels)
+// Uma boa medida é a largura de um card + o gap (ex: 90px + 15px = 105px)
+const scrollAmount = 105; 
+
+if (trilho && nextBtn && prevBtn) {
+    nextBtn.addEventListener('click', () => {
+        // Desliza para a direita
+        trilho.scrollLeft += scrollAmount;
+    });
+
+    prevBtn.addEventListener('click', () => {
+        // Desliza para a esquerda
+        trilho.scrollLeft -= scrollAmount;
+    });
+
+    // Opcional: Atualizar bolinhas baseadas no quanto foi deslizado
+    trilho.addEventListener('scroll', () => {
+        const indexAtivo = Math.round(trilho.scrollLeft / (trilho.scrollWidth / dots.length));
+        dots.forEach((dot, index) => {
+            if (index === indexAtivo) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    });
+}
+function scrollTrilho(direcao) {
+    const trilho = document.getElementById('trilho');
+    // Largura da imagem (85px) + Espaçamento (15px) = 100px por item
+    const scrollValue = 100 * 3; // Move 3 pratos por clique
     
-    if (darkModeSalvo === 'true') {
-        document.body.classList.add('tema-escuro');
-        botaoTema.checked = true; // Mantém o botão na posição correta
-    }
-});
+    trilho.scrollBy({
+        left: direcao * scrollValue,
+        behavior: 'smooth'
+    });
+}

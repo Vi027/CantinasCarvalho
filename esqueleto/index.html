@@ -13,42 +13,138 @@
     <div class="botao-escuro">
         <input type="checkbox" class="checkbox" id="botao-tema" />
         <label class="label" for="botao-tema">
-            <img src="./img/sol.png" alt="Sol" class="img-sol">
-            <img src="./img/lua.png" alt="Lua" class="img-lua">
+            <img src="./img/sol.png" alt="Sol" class="img-sol" draggable="false">
+            <img src="./img/lua.png" alt="Lua" class="img-lua" draggable="false">
             <div class="indicador"></div>
         </label>
     </div>
 
     <main class="container">
-        
+
         <section class="secao-cardapio">
             <h1 class="titulo">Cardápio do dia</h1>
             <div class="cardapio-box">
-                <div class="trilho">
+                <div class="trilho" id="trilho">
+
                     <div class="item-mini">
-                        <img src="./img/prato1.avif" alt="Prato 1">
+                        <div class="card-thumb">
+                            <img src="./img/prato1.avif" alt="Arroz" draggable="false">
+                            <div class="legenda">
+                                <h4>Arroz</h4>
+                                <p>Branco e soltinho</p>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="item-mini">
-                        <img src="./img/prato2.png" alt="Prato 2">
+                        <div class="card-thumb">
+                            <img src="./img/prato2.png" alt="Espaguete" draggable="false">
+                            <div class="legenda">
+                                <h4>Espaguete</h4>
+                                <p>Ao molho sugo</p>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="item-mini">
-                        <img src="./img/prato3.jpg" alt="Prato 3">
+                        <div class="card-thumb">
+                            <img src="./img/prato3.jpg" alt="Lasanha" draggable="false">
+                            <div class="legenda">
+                                <h4>Lasanha</h4>
+                                <p>Quatro queijos</p>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="item-mini">
-                        <img src="./img/prato4.jpg" alt="Prato 4">
+                        <div class="card-thumb">
+                            <img src="./img/prato4.jpg" alt="Salada" draggable="false">
+                            <div class="legenda">
+                                <h4>Salada</h4>
+                                <p>Folhas e legumes</p>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="item-mini">
-                        <img src="./img/prato5.jpg" alt="Prato 5">
+                        <div class="card-thumb">
+                            <img src="./img/prato5.jpg" alt="Nhoque" draggable="false">
+                            <div class="legenda">
+                                <h4>Nhoque</h4>
+                                <p>Molho especial</p>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="item-mini">
-                        <img src="./img/prato6.jpg" alt="Prato 6">
+                        <div class="card-thumb">
+                            <img src="./img/prato6.jpg" alt="Feijoada" draggable="false">
+                            <div class="legenda">
+                                <h4>Feijoada</h4>
+                                <p>Tradição caseira</p>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="item-mini">
-                        <img src="./img/prato7.webp" alt="Prato 7">
+                        <div class="card-thumb">
+                            <img src="./img/prato7.webp" alt="Batata Frita" draggable="false">
+                            <div class="legenda">
+                                <h4>Batata</h4>
+                                <p>Crocante e quente</p>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="item-mini">
-                        <img src="./img/prato8.jpg" alt="Prato 8">
+                        <div class="card-thumb">
+                            <img src="./img/prato8.jpg" alt="Frango Assado" draggable="false">
+                            <div class="legenda">
+                                <h4>Frango</h4>
+                                <p>Assado na brasa</p>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="item-mini">
+                        <div class="card-thumb">
+                            <img src="./img/strogonoff.png" alt="Strogonoff" draggable="false">
+                            <div class="legenda">
+                                <h4>Strogonoff</h4>
+                                <p>Frango cremoso</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-mini">
+                        <div class="card-thumb">
+                            <img src="./img/costela.png" alt="Costela" draggable="false">
+                            <div class="legenda">
+                                <h4>Costela</h4>
+                                <p>Desmanchando</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-mini">
+                        <div class="card-thumb">
+                            <img src="./img/carnePanela.png" alt="Carne de Panela" draggable="false">
+                            <div class="legenda">
+                                <h4>Carne Panela</h4>
+                                <p>Com batatas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="btn-car" onclick="scrollTrilho(-1)">❮ Anterior</button>
+                    <div class="dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="btn-car" onclick="scrollTrilho(1)">Próximo ❯</button>
                 </div>
             </div>
         </section>
@@ -56,9 +152,9 @@
         <section class="secao-lanches">
             <h1 class="titulo">Lanches</h1>
             <div class="grid-lanches">
-                
+
                 <div class="card-lanche">
-                    <img src="./img/misto-quente.avif" alt="Misto Quente">
+                    <img src="./img/misto-quente.avif" alt="Misto Quente" draggable="false">
                     <div class="card-info">
                         <div class="texto">
                             <h3>Misto-quente</h3>
@@ -69,7 +165,7 @@
                 </div>
 
                 <div class="card-lanche">
-                    <img src="./img/pao-queijo.jpg" alt="Pão de Queijo">
+                    <img src="./img/pao-queijo.jpg" alt="Pão de Queijo" draggable="false">
                     <div class="card-info">
                         <div class="texto">
                             <h3>Pão de queijo</h3>
@@ -80,7 +176,7 @@
                 </div>
 
                 <div class="card-lanche">
-                    <img src="./img/coxinha.avif" alt="Coxinha">
+                    <img src="./img/coxinha.avif" alt="Coxinha" draggable="false">
                     <div class="card-info">
                         <div class="texto">
                             <h3>Coxinha</h3>
@@ -91,10 +187,98 @@
                 </div>
 
                 <div class="card-lanche">
-                    <img src="./img/esfirra.jpg" alt="Esfirra">
+                    <img src="./img/esfirra.jpg" alt="Esfirra" draggable="false">
                     <div class="card-info">
                         <div class="texto">
                             <h3>Esfirra</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/boloChocolate.png" alt="Bolo" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Bolo de Chocolate</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/empada.png" alt="Empada" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Empada</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/enroladinho.png" alt="Enroladinho" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Enroladinho</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/enroladinhoSalsicha.png" alt="Enroladinhos" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Enroladinho de Salsicha</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/hamburgao.png" alt="Hamburgao" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>hamburgão</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/kibe.png" alt="Kibe" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Quibe</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/lancheNatural.png" alt="Lanche" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Lanche Natural</h3>
+                            <p>Massa de trigo com carne...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/pao-queijo.jpg" alt="Esfirra" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Pão de Queijo</h3>
                             <p>Massa de trigo com carne...</p>
                         </div>
                         <button class="btn-carrinho">🛒</button>
@@ -106,26 +290,26 @@
 
         <nav class="menu-inferior">
             <div class="menu-box">
-                <div class="icon-item logo">
-                    <img src="./img/logo.png" alt="Logo">
-                </div>
-                <button class="icon-item">
+               <button class="icon-item" onclick="window.location.href='index.html'">
+                    <img src="./img/logo.png" alt="Bebidas">
+                </button>
+                <button class="icon-item" onclick="window.location.href='lanches.html'">
                     <img src="./img/hamburguer.png" alt="Lanches">
                 </button>
-                <button class="icon-item">
-                    <img src="./img/almoco.png" alt="Almoço">
+                <button class="icon-item" onclick="window.location.href='almoco.html'">
+                    <img src="./img/almoco.png" alt="Almoco">
                 </button>
-                <button class="icon-item">
-                    <img src="./img/bebida.png" alt="Bebida">
+                 <button class="icon-item" onclick="window.location.href='bebidas.html'">
+                    <img src="./img/bebidas.png" alt="Bebidas">
                 </button>
-                <button class="icon-item">
-                    <img src="./img/sobremesas.png" alt="Sobremesa">
+                 <button class="icon-item" onclick="window.location.href='sobremesas.html'">
+                    <img src="./img/sobremesas.png" alt="Sobremesas">
                 </button>
-                <button class="icon-item">
+                <button class="icon-item" onclick="window.location.href='doces.html'">
                     <img src="./img/doces.png" alt="Doces">
                 </button>
-                <button class="icon-item">
-                    <img src="./img/carrinho.png" alt="Carrinho">
+                <button class="icon-item" onclick="window.location.href='carrinho.html'">
+                    <img src="./img/carrinho.png" alt="Bebidas">
                 </button>
             </div>
         </nav>
