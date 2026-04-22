@@ -1,33 +1,36 @@
-// --- LÓGICA DO MODO ESCURO ---
-const botaoTema = document.getElementById('botao-tema');
-botaoTema.addEventListener('change', () => {
-    document.body.classList.toggle('tema-escuro');
-});
+// --- 1. LÓGICA DO MODO ESCURO ---
+const checkbox = document.getElementById('botao-tema');
 
-// --- LÓGICA DO CARROSSEL (DESLIZE MANUAL) ---
-const trilho = document.querySelector('.trilho');
-const nextBtn = document.getElementById('nextBtn');
-const prevBtn = document.getElementById('prevBtn');
+if (checkbox) {
+    checkbox.addEventListener('change', () => {
+        document.body.classList.toggle('tema-escuro');
+    });
+}
+
+// --- 2. LÓGICA DO CARROSSEL ---
+const trilho = document.getElementById('trilho'); // Usando ID para ser mais preciso
 const dots = document.querySelectorAll('.dot');
 
-// Define quanto cada clique vai deslizar (em pixels)
-// Uma boa medida é a largura de um card + o gap (ex: 90px + 15px = 105px)
-const scrollAmount = 105; 
+// Função para os botões de seta (Ajustada para mover suavemente)
+function scrollTrilho(direcao) {
+    if (trilho) {
+        // 100px é a largura média de um item + gap
+        const scrollValue = 100 * 3; 
+        trilho.scrollBy({
+            left: direcao * scrollValue,
+            behavior: 'smooth'
+        });
+    }
+}
 
-if (trilho && nextBtn && prevBtn) {
-    nextBtn.addEventListener('click', () => {
-        // Desliza para a direita
-        trilho.scrollLeft += scrollAmount;
-    });
-
-    prevBtn.addEventListener('click', () => {
-        // Desliza para a esquerda
-        trilho.scrollLeft -= scrollAmount;
-    });
-
-    // Opcional: Atualizar bolinhas baseadas no quanto foi deslizado
+// --- 3. LÓGICA DAS BOLINHAS (DOTS) ---
+if (trilho && dots.length > 0) {
     trilho.addEventListener('scroll', () => {
-        const indexAtivo = Math.round(trilho.scrollLeft / (trilho.scrollWidth / dots.length));
+        // Calcula qual "página" está visível
+        // Dividimos a posição atual pela largura total rolável dividida pelo número de bolinhas
+        const larguraVisivel = trilho.offsetWidth;
+        const indexAtivo = Math.round(trilho.scrollLeft / larguraVisivel);
+
         dots.forEach((dot, index) => {
             if (index === indexAtivo) {
                 dot.classList.add('active');
@@ -35,15 +38,5 @@ if (trilho && nextBtn && prevBtn) {
                 dot.classList.remove('active');
             }
         });
-    });
-}
-function scrollTrilho(direcao) {
-    const trilho = document.getElementById('trilho');
-    // Largura da imagem (85px) + Espaçamento (15px) = 100px por item
-    const scrollValue = 100 * 3; // Move 3 pratos por clique
-    
-    trilho.scrollBy({
-        left: direcao * scrollValue,
-        behavior: 'smooth'
     });
 }

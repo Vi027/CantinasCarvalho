@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* --- 1. VARIÁVEIS DE CORES (MODO CLARO E ESCURO) --- */
 :root {
-    --bg-body: #f5f1e6;
-    --bg-card: #ece6d8;
+    --bg-body: #F6F1E6;
+    --bg-card: #F0ECE1;
     --text-color: #652a0e;
     --shadow: rgba(0, 0, 0, 0.08);
     --btn-toggle: #4d2b1a;
     --indicador: #f5f1e6;
-    --btn-nav-bg: #e6dec9;
+    --cor-legenda: rgba(0, 0, 0, 0.75);
 }
 
 body.tema-escuro {
@@ -15,22 +17,38 @@ body.tema-escuro {
     --shadow: rgba(0, 0, 0, 0.4);
     --btn-toggle: #f5f1e6;
     --indicador: #4d2b1a;
-    --btn-nav-bg: #3a231a;
+    --cor-legenda: rgba(0, 0, 0, 0.85);
+}
+
+/* --- 2. CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: var(--bg-body);
     color: var(--text-color);
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    transition: 0.4s;
+    font-family: "Inter";
+    transition: background-color 0.4s ease, color 0.4s ease;
+    line-height: 1.5;
 }
 
-.container { padding: 40px 20px 150px 20px; max-width: 1100px; margin: 0 auto; }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 15px 140px 15px; /* Padding inferior maior para não cobrir o menu fixo */
+}
 
-.titulo { font-size: 30px; margin-bottom: 20px; font-weight: bold; }
+.titulo {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
 
-/* CARDÁPIO BOX */
+/* --- 3. SEÇÃO CARDÁPIO (TRILHO / CARROSSEL) --- */
 .cardapio-box {
     background: var(--bg-card);
     border-radius: 25px;
@@ -38,29 +56,33 @@ body {
     box-shadow: 0 4px 15px var(--shadow);
     margin-bottom: 40px;
 }
-/* Layout do Carrossel */
+
 .trilho {
     display: flex;
-    gap: 50px;
-    overflow-x: hidden;
+    gap: 15px;
+    overflow-x: auto; /* Permite o deslize horizontal */
     scroll-behavior: smooth;
     padding: 10px 0;
-    flex-wrap: nowrap; /* Garante que fique em linha horizontal */
+    -webkit-overflow-scrolling: touch;
 }
 
-/* Tamanho das miniaturas */
+/* Esconde a barra de rolagem */
+.trilho::-webkit-scrollbar {
+    display: none;
+}
+
 .item-mini {
     flex: 0 0 auto;
-    width: 85px; /* Tamanho ajustado para não ficar grande */
 }
 
 .card-thumb {
     position: relative;
-    width: 85px;
+    width: 85px;  /* Tamanho exato da sua referência */
     height: 85px;
     border-radius: 15px;
-    overflow: hidden; /* Esconde a legenda que está "fora" do quadro */
+    overflow: hidden;
     box-shadow: 0 4px 8px var(--shadow);
+    cursor: pointer;
 }
 
 .card-thumb img {
@@ -70,14 +92,14 @@ body {
     transition: transform 0.4s ease;
 }
 
-/* Legenda que sobe */
+/* LEGENDA QUE SOBE NO HOVER */
 .legenda {
     position: absolute;
-    bottom: -100%; /* Começa escondida embaixo */
+    bottom: -100%; /* Começa escondida */
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.75);
+    background: var(--cor-legenda);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -86,22 +108,30 @@ body {
     text-align: center;
     transition: bottom 0.3s ease-in-out;
     padding: 5px;
-    pointer-events: none; /* Mouse ignora o texto e foca no card */
+    pointer-events: none;
 }
 
-.legenda h4 { font-size: 9px; margin: 0; text-transform: uppercase; }
-.legenda p { font-size: 7px; margin: 2px 0 0 0; opacity: 0.9; }
+.legenda h4 {
+     font-size: 16px; 
+     margin: 0;
+     text-transform: uppercase; 
+     font-weight: bold; 
+     margin: 10px;
+    }
+.legenda p {
+     font-size: 15px; 
+     margin-top: 2px; 
+     opacity: 0.9; }
 
-/* Efeito Hover */
 .card-thumb:hover .legenda {
-    bottom: 0; /* Sobe ao passar o mouse */
+    bottom: 0;
 }
 
 .card-thumb:hover img {
-    transform: scale(1.1); /* Zoom na foto */
+    transform: scale(1.1);
 }
 
-/* Botões de navegação */
+/* BOTÕES DE NAVEGAÇÃO DO TRILHO */
 .carousel-controls {
     display: flex;
     justify-content: space-between;
@@ -112,118 +142,217 @@ body {
 .btn-car {
     background: var(--bg-card);
     border: 1px solid rgba(0,0,0,0.1);
-    padding: 5px 12px;
-    border-radius: 15px;
+    padding: 6px 14px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 12px;
     color: var(--text-color);
-}
-
-/* RODAPÉ CARROSSEL */
-.carousel-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.btn-nav {
-    background: var(--btn-nav-bg);
-    color: var(--text-color);
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-.indicators { display: flex; gap: 8px; }
-.dot { width: 10px; height: 10px; background: #d2c8b4; border-radius: 50%; }
-.dot.active { background: #805c4c; }
+.btn-car:hover {
+    filter: brightness(0.9);
+}
 
-/* GRID LANCHES */
+.dots { display: flex; gap: 5px; }
+.dot { height: 7px; width: 7px; background: #bbb; border-radius: 50%; }
+.dot.active { background: var(--text-color); }
+
+/* --- 4. SEÇÃO LANCHES (GRID RESPONSIVA) --- */
 .grid-lanches {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
 }
 
 .card-lanche {
     background: var(--bg-card);
-    border-radius: 25px;
-    padding: 15px;
-    box-shadow: 0 8px 20px var(--shadow);
-    transition: transform 0.2s ease;
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform 0.3s ease;
 }
+
 .card-lanche:hover {
-    transform: scale(1.05); /* O card inteiro aumenta levemente */
-    box-shadow: 0 10px 25px var(--shadow);
+    transform: translateY(-5px);
 }
 
-.card-lanche img { width: 100%; height: 200px; border-radius: 20px; object-fit: cover; }
-
-.card-info { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-.card-info h3 { margin: 0; font-size: 18px; }
-.card-info p { margin: 0; font-size: 12px; opacity: 0.8; }
-
-.btn-carrinho { background: #fff; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; padding: 5px 8px; }
-
-h1 {
-    padding: 30px;
+.card-lanche img {
+    width: 100%;
+    height: 120px;
+    border-radius: 15px;
+    object-fit: cover;
 }
 
-/* MENU INFERIOR */
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.texto h3 { font-size: 14px; margin: 0; font-weight: bold; }
+.texto p { font-size: 11px; margin: 0; opacity: 0.7; }
+
+.btn-carrinho {
+    background: var(--bg-body);
+    border: none;
+    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.btn-carrinho:active { transform: scale(0.9); }
+
+/* --- 5. MENU INFERIOR FIXO --- */
 .menu-inferior {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: 800px;
+    width: 95%; /* Ajustado para não extrapolar a tela em celulares */
+    max-width: 850px;
+    z-index: 1000;
 }
 
 .menu-box {
     background: var(--bg-card);
-    border-radius: 25px;
-    padding: 10px;
+    border-radius: 20px; /* Bordas um pouco menos arredondadas como na foto */
+    padding: 15px 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 10px 30px var(--shadow);
+    box-shadow: 0 4px 15px var(--shadow);
 }
 
-.menu-box img:hover {
-    transform: scale(1.05); /* O card inteiro aumenta levemente */
-    box-shadow: 0 10px 25px var(--shadow);
+.icon-item {
+    background:var(--bg-card); /* Cor de fundo dos botões quadrados */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 15px; /* Arredondamento dos botões internos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 9px 15px rgba(0, 0, 0, 0.05); /* Sombra suave nos botões */
+    width: 65px;  /* Tamanho da caixinha do botão */
+    height: 65px; /* Tamanho da caixinha do botão */
 }
 
+/* O primeiro item (Logo) geralmente não tem fundo ou é diferente */
+.icon-item:first-child {
+    background: none;
+    box-shadow: none;
+    width: auto;
+}
 
-.icon-item { background: none; border: none; cursor: pointer; }
-.icon-item img { width: 45px; height: 45px; transition: 0.3s; }
-body.tema-escuro .icon-item:not(.logo) img { filter: brightness(0) invert(1); }
-.icon-item.logo img { width: 60px; height: 60px; }
+.icon-item:hover { 
+    transform: translateY(-5px); /* Efeito de flutuar ao passar o mouse */
+   
+}
 
-/* TOGGLE TEMA */
-.botao-escuro { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+.icon-item img { 
+    width: 50px; /* Tamanho do ícone dentro da caixinha */
+    height: 50px; 
+    object-fit: contain; 
+    opacity: 0.8; /* Deixa o ícone levemente suave como na foto */
+}
+
+/* Garante que o logo da cantina fique maior que os outros ícones */
+.icon-item img[alt*="Início"], 
+.icon-item img[alt*="Logo"] {
+    width: 50px; 
+    height: auto;
+    opacity: 1;
+}
+
+/* Estilo para quando o botão estiver selecionado (opcional) */
+.icon-item.active {
+    background: #DED5C0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Inverter cores dos ícones no modo escuro para ficarem brancos */
+/* Filtra todos, exceto a classe .logo-img */
+/* Isso diz: "Inverta a cor de todas as imagens do menu, EXCETO a que tem a classe-logo" */
+body.tema-escuro .icon-item img:not(.classe-logo) {
+    filter: brightness(0) invert(1);
+}
+
+/* Garante que a logo mantenha as cores originais e o tamanho correto */
+.classe-logo {
+    filter: none !important;
+    width: 70px !important; /* Ajuste o tamanho da logo aqui se precisar */
+    height: auto !important;
+}
+
+/* Remove o fundo bege e a sombra apenas do botão da logo para ele não ficar quadrado */
+.icon-item:has(.classe-logo) {
+    background: none !important;
+    box-shadow: none !important;
+}
+/* --- 6. BOTÃO DARK MODE --- */
+.botao-escuro {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+}
+
 .checkbox { opacity: 0; position: absolute; }
 .label {
     background-color: var(--btn-toggle);
     border-radius: 50px;
+    cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Mantém os ícones nas pontas */
     align-items: center;
     padding: 5px;
+    height: 26px;
+    width: 50px;
     position: relative;
-    height: 26px; width: 55px;
-    cursor: pointer;
 }
-.label .indicador {
+
+.indicador {
     background-color: var(--indicador);
     border-radius: 50%;
     position: absolute;
-    top: 2px; left: 2px;
-    height: 22px; width: 22px;
-    transition: 0.3s;
+    top: 2px;
+    left: 2px; /* Começa na esquerda */
+    height: 22px;
+    width: 22px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2; /* Garante que a bolinha fique por cima das imagens se necessário */
 }
-#botao-tema:checked + .label .indicador { transform: translateX(28px); }
-.img-lua, .img-sol { width: 16px; }
+
+/* Quando o checkbox for marcado, ele move para a DIREITA */
+#botao-tema:checked + .label .indicador {
+    transform: translateX(24px); 
+}
+
+/* Caso você queira que ele comece na DIREITA e vá para a ESQUERDA, 
+   basta inverter o valor do translateX para 0 e o left para 26px */
+
+.img-lua, .img-sol { width: 15px; }
+
+/* --- 7. RESPONSIVIDADE PARA DESKTOP --- */
+@media (min-width: 768px) {
+    .card-thumb {
+        width: 110px; /* Miniaturas um pouco maiores no PC */
+        height: 110px;
+    }
+    
+    .grid-lanches {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    
+    .titulo { font-size: 32px; }
+}

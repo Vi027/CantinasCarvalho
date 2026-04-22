@@ -6,15 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cantinas Carvalho</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <div class="botao-escuro">
         <input type="checkbox" class="checkbox" id="botao-tema" />
-        <label class="label" for="botao-tema">
-            <img src="./img/sol.png" alt="Sol" class="img-sol" draggable="false">
+        <label for="botao-tema" class="label">
             <img src="./img/lua.png" alt="Lua" class="img-lua" draggable="false">
+            <img src="./img/sol.png" alt="Sol" class="img-sol" draggable="false">
             <div class="indicador"></div>
         </label>
     </div>
@@ -140,10 +145,7 @@
 
                 <div class="carousel-controls">
                     <button class="btn-car" onclick="scrollTrilho(-1)">❮ Anterior</button>
-                    <div class="dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                    </div>
+                   
                     <button class="btn-car" onclick="scrollTrilho(1)">Próximo ❯</button>
                 </div>
             </div>
@@ -202,7 +204,18 @@
                     <div class="card-info">
                         <div class="texto">
                             <h3>Bolo de Chocolate</h3>
-                            <p>Massa de trigo com carne...</p>
+                            <p>Massa fofinha com cobertura de brigadeiro gourmet...</p>
+                        </div>
+                        <button class="btn-carrinho">🛒</button>
+                    </div>
+                </div>
+
+                <div class="card-lanche">
+                    <img src="./img/brigadeiro.png" alt="Brigadeiro" draggable="false">
+                    <div class="card-info">
+                        <div class="texto">
+                            <h3>Brigadeiro</h3>
+                            <p>Chocolate nobre, leite condensado e granulado...</p>
                         </div>
                         <button class="btn-carrinho">🛒</button>
                     </div>
@@ -213,7 +226,7 @@
                     <div class="card-info">
                         <div class="texto">
                             <h3>Empada</h3>
-                            <p>Massa de trigo com carne...</p>
+                            <p>Massa amanteigada com recheio cremoso de frango...</p>
                         </div>
                         <button class="btn-carrinho">🛒</button>
                     </div>
@@ -223,19 +236,19 @@
                     <img src="./img/enroladinho.png" alt="Enroladinho" draggable="false">
                     <div class="card-info">
                         <div class="texto">
-                            <h3>Enroladinho</h3>
-                            <p>Massa de trigo com carne...</p>
+                            <h3>Enroladinho de Presunto e Queijo</h3>
+                            <p>Massa leve recheada com presunto e queijo...</p>
                         </div>
                         <button class="btn-carrinho">🛒</button>
                     </div>
                 </div>
 
                 <div class="card-lanche">
-                    <img src="./img/enroladinhoSalsicha.png" alt="Enroladinhos" draggable="false">
+                    <img src="./img/enroladinhoSalsicha.png" alt="EnroladinhoSalsicha" draggable="false">
                     <div class="card-info">
                         <div class="texto">
                             <h3>Enroladinho de Salsicha</h3>
-                            <p>Massa de trigo com carne...</p>
+                            <p>Massa macia com salsicha de alta qualidade...</p>
                         </div>
                         <button class="btn-carrinho">🛒</button>
                     </div>
@@ -245,41 +258,8 @@
                     <img src="./img/hamburgao.png" alt="Hamburgao" draggable="false">
                     <div class="card-info">
                         <div class="texto">
-                            <h3>hamburgão</h3>
-                            <p>Massa de trigo com carne...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/kibe.png" alt="Kibe" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Quibe</h3>
-                            <p>Massa de trigo com carne...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/lancheNatural.png" alt="Lanche" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Lanche Natural</h3>
-                            <p>Massa de trigo com carne...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/pao-queijo.jpg" alt="Esfirra" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Pão de Queijo</h3>
-                            <p>Massa de trigo com carne...</p>
+                            <h3>Hamburgão</h3>
+                            <p>Hambúrguer suculento com queijo e presunto em uma massa artesanal...</p>
                         </div>
                         <button class="btn-carrinho">🛒</button>
                     </div>
@@ -290,26 +270,26 @@
 
         <nav class="menu-inferior">
             <div class="menu-box">
-               <button class="icon-item" onclick="window.location.href='index.html'">
-                    <img src="./img/logo.png" alt="Bebidas">
+                <button class="icon-item" onclick="window.location.href='index.html'">
+                    <img src="./img/logo.png" alt="Início" class="classe-logo">
                 </button>
                 <button class="icon-item" onclick="window.location.href='lanches.html'">
                     <img src="./img/hamburguer.png" alt="Lanches">
                 </button>
                 <button class="icon-item" onclick="window.location.href='almoco.html'">
-                    <img src="./img/almoco.png" alt="Almoco">
+                    <img src="./img/almoco.png" alt="Almoço">
                 </button>
-                 <button class="icon-item" onclick="window.location.href='bebidas.html'">
-                    <img src="./img/bebidas.png" alt="Bebidas">
+                <button class="icon-item" onclick="window.location.href='bebidas.html'">
+                    <img src="./img/bebida.png" alt="Bebidas">
                 </button>
-                 <button class="icon-item" onclick="window.location.href='sobremesas.html'">
+                <button class="icon-item" onclick="window.location.href='sobremesas.html'">
                     <img src="./img/sobremesas.png" alt="Sobremesas">
                 </button>
                 <button class="icon-item" onclick="window.location.href='doces.html'">
                     <img src="./img/doces.png" alt="Doces">
                 </button>
                 <button class="icon-item" onclick="window.location.href='carrinho.html'">
-                    <img src="./img/carrinho.png" alt="Bebidas">
+                    <img src="./img/carrinho.png" alt="Carrinho">
                 </button>
             </div>
         </nav>
