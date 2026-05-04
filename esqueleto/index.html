@@ -15,163 +15,55 @@
 
 <body>
 
-    <div class="botao-escuro">
-        <input type="checkbox" class="checkbox" id="botao-tema" />
-        <label for="botao-tema" class="label">
-            <img src="./img/logo.png" alt="logo" draggable="false">
-            <img src="./img/lua.png" alt="Lua" class="img-lua" draggable="false">
-            <img src="./img/sol.png" alt="Sol" class="img-sol" draggable="false">
-            <div class="indicador"></div>
-        </label>
-    </div>
+    <header class="header-topo">
+        <!-- Logo na Esquerda -->
+        <img src="./img/logo.png" alt="Logo" class="logo-principal">
 
-    <main class="container">
+        <!-- Botão de Tema na Direita -->
+        <div class="botao-escuro">
+            <input type="checkbox" class="checkbox" id="botao-tema" />
+            <label for="botao-tema" class="label">
+                <img src="./img/lua.png" alt="Lua" class="img-lua">
+                <img src="./img/sol.png" alt="Sol" class="img-sol">
+                <div class="indicador"></div>
+            </label>
+        </div>
+    </header>
 
-        <section class="secao-lanches">
-            <h1 class="titulo">Cantinas</h1>
-            <h1 class="titulo2">Carvalho</h1>
-            <h3 class="texto"> Onde o sabor encontra o carinho</h3>
-            <img src="./img/lanche-principal.png" alt="lanche-principal">
-            <div class="grid-lanches">
+    <main class="container"> <!-- Início do conteúdo centralizado -->
 
-                <div class="card-lanche">
-                    <img src="./img/misto-quente.avif" alt="Misto Quente" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Misto-quente</h3>
-                            <p>Pão francês, presunto, queijo...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/pao-queijo.jpg" alt="Pão de Queijo" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Pão de queijo</h3>
-                            <p>Polvilho, queijo, leite, ovos...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/coxinha.avif" alt="Coxinha" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Coxinha</h3>
-                            <p>Massa de trigo com frango...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/esfirra.jpg" alt="Esfirra" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Esfirra</h3>
-                            <p>Massa de trigo com carne...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/boloChocolate.png" alt="Bolo" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Bolo de Chocolate</h3>
-                            <p>Massa fofinha com cobertura de brigadeiro gourmet...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/brigadeiro.png" alt="Brigadeiro" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Brigadeiro</h3>
-                            <p>Chocolate nobre, leite condensado e granulado...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/empada.png" alt="Empada" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Empada</h3>
-                            <p>Massa amanteigada com recheio cremoso de frango...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/enroladinho.png" alt="Enroladinho" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Enroladinho de Presunto e Queijo</h3>
-                            <p>Massa leve recheada com presunto e queijo...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/enroladinhoSalsicha.png" alt="EnroladinhoSalsicha" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Enroladinho de Salsicha</h3>
-                            <p>Massa macia com salsicha de alta qualidade...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
-                <div class="card-lanche">
-                    <img src="./img/hamburgao.png" alt="Hamburgao" draggable="false">
-                    <div class="card-info">
-                        <div class="texto">
-                            <h3>Hamburgão</h3>
-                            <p>Hambúrguer suculento com queijo e presunto em uma massa artesanal...</p>
-                        </div>
-                        <button class="btn-carrinho">🛒</button>
-                    </div>
-                </div>
-
+        <section class="secao-banner">
+            <!-- Textos e Imagem do Lanche -->
+            <div class="banner-textos">
+                <h1 class="titulo">Cantinas</h1>
+                <h1 class="titulo2">Carvalho</h1>
+                <p class="subtitulo">Onde o sabor encontra o carinho</p>
+            </div>
+            <div class="banner-img">
+                <img src="./img/lanche-principal.png" alt="lanche-principal">
             </div>
         </section>
 
-        <nav class="menu-inferior">
-            <div class="menu-box">
-                <button class="icon-item" onclick="window.location.href='index.html'">
-                    <img src="./img/logo.png" alt="Início" class="classe-logo">
-                </button>
-                <button class="icon-item" onclick="window.location.href='lanches.html'">
-                    <img src="./img/hamburguer.png" alt="Lanches">
-                </button>
-                <button class="icon-item" onclick="window.location.href='almoco.html'">
-                    <img src="./img/almoco.png" alt="Almoço">
-                </button>
-                <button class="icon-item" onclick="window.location.href='bebidas.html'">
-                    <img src="./img/bebida.png" alt="Bebidas">
-                </button>
-                <button class="icon-item" onclick="window.location.href='sobremesas.html'">
-                    <img src="./img/sobremesas.png" alt="Sobremesas">
-                </button>
-                <button class="icon-item" onclick="window.location.href='doces.html'">
-                    <img src="./img/doces.png" alt="Doces">
-                </button>
-                <button class="icon-item" onclick="window.location.href='carrinho.html'">
-                    <img src="./img/carrinho.png" alt="Carrinho">
-                </button>
-            </div>
-        </nav>
+        <section class="categorias-grid">
+            <button class="card-categoria" onclick="window.location.href='almoco.html'">
+                <img src="./img/almoco.png" alt="Almoço">
+            </button>
+            <button class="card-categoria" onclick="window.location.href='lanches.html'">
+                <img src="./img/hamburguer.png" alt="Lanches">
+            </button>
+            <button class="card-categoria" onclick="window.location.href='bebidas.html'">
+                <img src="./img/bebida.png" alt="Bebidas">
+            </button>
+            <button class="card-categoria" onclick="window.location.href='sobremesas.html'">
+                <img src="./img/sobremesas.png" alt="Sobremesas">
+            </button>
+            <button class="card-categoria" onclick="window.location.href='doces.html'">
+                <img src="./img/doces.png" alt="Doces">
+            </button>
+            <button class="card-categoria" onclick="window.location.href='carrinho.html'">
+                <img src="./img/carrinho.png" alt="Carrinho">
+            </button>
+        </section>
 
     </main>
 

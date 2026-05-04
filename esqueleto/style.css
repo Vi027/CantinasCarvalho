@@ -34,20 +34,92 @@ body {
     transition: background-color 0.4s ease, color 0.4s ease;
     line-height: 1.5;
 }
-
+/* Centraliza o Banner e a Grid de Lanches */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 15px 140px 15px; /* Padding inferior maior para não cobrir o menu fixo */
+    max-width: 1000px; /* Define o quão "perto do centro" o conteúdo fica */
+    margin: 0 auto;    /* Mágica que centraliza o bloco */
+    padding: 0 20px;   /* Impede que o conteúdo cole na borda em telas pequenas */
+    width: 100%;
+}
+
+/* Centraliza também a Logo e o Botão lá no topo */
+.header-topo {
+    max-width: 1000px; /* Mesma largura para ficar tudo alinhado */
+    margin: 0 auto;    /* Centraliza o cabeçalho */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.logo-principal {
+    width: 100px; /* Ajuste conforme necessário */
+    height: auto;
+}
+
+/* 2. Banner Principal (Textos e Lanche) */
+.secao-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.banner-textos {
+    flex: 1;
+    text-align: left;
 }
 
 .titulo {
-    font-size: 26px;
+    font-size: 48px;
     font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
+    color: #5d2a18; /* Marrom escuro */
+    margin: 0;
+    line-height: 1;
 }
 
+.titulo2 {
+    font-size: 64px;
+    font-weight: 800;
+    color: #ffb800; /* Amarelo da imagem */
+    margin: 0;
+    line-height: 1;
+}
+
+.subtitulo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #5d2a18;
+    margin-top: 15px;
+}
+
+/* 3. Imagem do Lanche */
+.banner-img {
+    flex: 1.2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.banner-img img {
+    width: 110%; /* Para dar o efeito de destaque */
+    max-width: 600px;
+    height: auto;
+    /* Ajuste para a imagem "vazar" levemente para a direita como no layout */
+    transform: translateX(30px); 
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .secao-banner {
+        flex-direction: column-reverse; /* No celular, o lanche pode ficar em cima ou embaixo */
+        text-align: center;
+    }
+    .banner-textos { text-align: center; }
+    .banner-img img { transform: none; width: 100%; }
+}
 /* --- 3. SEÇÃO CARDÁPIO (TRILHO / CARROSSEL) --- */
 .cardapio-box {
     background: var(--bg-card);
@@ -212,58 +284,50 @@ body {
 .btn-carrinho:active { transform: scale(0.9); }
 
 /* --- 5. MENU INFERIOR FIXO --- */
-.menu-inferior {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%; /* Ajustado para não extrapolar a tela em celulares */
-    max-width: 850px;
-    z-index: 1000;
+/* Container da Grid */
+.categorias-grid {
+    display: grid;
+    /* Cria 3 colunas de tamanhos iguais */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; /* Espaço entre os quadrados */
+    padding: 20px;
+    max-width: 600px; /* Ajuste conforme o centro do seu site */
+    margin: 0 auto; /* Centraliza a grid toda */
 }
 
-.menu-box {
-    background: var(--bg-card);
-    border-radius: 20px; /* Bordas um pouco menos arredondadas como na foto */
-    padding: 15px 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 4px 15px var(--shadow);
-}
-
-.icon-item {
-    background:var(--bg-card); /* Cor de fundo dos botões quadrados */
+/* O Quadrado Bege */
+.card-categoria {
+    background-color: #EBE6D7; /* Bege claro da imagem */
     border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-radius: 15px; /* Arredondamento dos botões internos */
+    aspect-ratio: 1 / 1; /* Garante que seja sempre um quadrado perfeito */
+    border-radius: 20px; /* Cantos arredondados */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 9px 15px rgba(0, 0, 0, 0.05); /* Sombra suave nos botões */
-    width: 65px;  /* Tamanho da caixinha do botão */
-    height: 65px; /* Tamanho da caixinha do botão */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra bem sutil */
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* O primeiro item (Logo) geralmente não tem fundo ou é diferente */
-.icon-item:first-child {
-    background: none;
-    box-shadow: none;
-    width: auto;
+.card-categoria:hover {
+    transform: translateY(-5px);
+    background-color: #DFD9C8; /* Escurece levemente no hover */
 }
 
-.icon-item:hover { 
-    transform: translateY(-5px); /* Efeito de flutuar ao passar o mouse */
-   
+/* O Ícone dentro do quadrado */
+.card-categoria img {
+    width: 60%; /* Ajuste o tamanho do ícone aqui */
+    height: auto;
+    /* Se os seus ícones forem coloridos e você quiser esse tom de bege escuro da foto: */
+    filter: sepia(0.3) saturate(0.5) opacity(0.6);
 }
 
-.icon-item img { 
-    width: 50px; /* Tamanho do ícone dentro da caixinha */
-    height: 50px; 
-    object-fit: contain; 
-    opacity: 0.8; /* Deixa o ícone levemente suave como na foto */
+/* Responsividade: No celular fica com 2 ou 3 colunas? */
+@media (max-width: 400px) {
+    .categorias-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
 }
 
 /* Garante que o logo da cantina fique maior que os outros ícones */
