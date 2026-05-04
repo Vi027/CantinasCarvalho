@@ -40,3 +40,28 @@ if (trilho && dots.length > 0) {
         });
     });
 }
+
+function mostrarCategoria(btn, categoria) {
+    // 1. GERENCIAR OS BOTÕES (Troca a cor)
+    const botoes = document.querySelectorAll('.btn-filtro');
+    botoes.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // 2. GERENCIAR AS SEÇÕES (Mostra/Esconde)
+    const secoes = document.querySelectorAll('.secao-produtos');
+    
+    secoes.forEach(secao => {
+        // Se clicar em 'todos', mostra todas as seções
+        if (categoria === 'todos') {
+            secao.style.display = 'block';
+        } else {
+            // Se o ID da seção contiver a palavra da categoria (ex: secao-lanches contém 'lanches')
+            if (secao.id === 'secao-' + categoria) {
+                secao.style.display = 'block';
+                secao.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                secao.style.display = 'none';
+            }
+        }
+    });
+}

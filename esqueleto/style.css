@@ -34,31 +34,56 @@ body {
     transition: background-color 0.4s ease, color 0.4s ease;
     line-height: 1.5;
 }
-/* Centraliza o Banner e a Grid de Lanches */
-.container {
-    max-width: 1000px; /* Define o quão "perto do centro" o conteúdo fica */
-    margin: 0 auto;    /* Mágica que centraliza o bloco */
-    padding: 0 20px;   /* Impede que o conteúdo cole na borda em telas pequenas */
-    width: 100%;
-}
+
 
 /* Centraliza também a Logo e o Botão lá no topo */
 .header-topo {
-    max-width: 1000px; /* Mesma largura para ficar tudo alinhado */
-    margin: 0 auto;    /* Centraliza o cabeçalho */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    max-width: 100%;
     width: 100%;
+    display: flex;
+    justify-content: space-between; /* Empurra a logo para a esquerda e o botão para a direita */
+    align-items: center;
+    padding: 20px 40px; /* Dá um respiro nas laterais */
+    background-color: transparent;
+}
+
+.header-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre a seta e a logo */
+}
+.seta-voltar{
+    width: 28px;
+    height: auto;
+    cursor: pointer;
+    margin-top: 50px;
 }
 
 .logo-principal {
-    width: 100px; /* Ajuste conforme necessário */
+    width: 100px; 
     height: auto;
+    padding: 10px;
+    margin-top: 10px;
 }
 
 /* 2. Banner Principal (Textos e Lanche) */
+.banner-container{
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-box {
+    background-color: #5d2a18;
+    border-radius: 30px;      /* Bordas bem arredondadas */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 90px;
+    position: relative;       /* Necessário para a imagem flutuar */
+    overflow: visible;        /* Permite que a imagem saia da caixa */
+    min-height: 300px;
+}
 .secao-banner {
     display: flex;
     align-items: center;
@@ -71,54 +96,77 @@ body {
 .banner-textos {
     flex: 1;
     text-align: left;
+    color: #F6F1E6;
 }
 
-.titulo {
-    font-size: 48px;
-    font-weight: 800;
-    color: #5d2a18; /* Marrom escuro */
-    margin: 0;
-    line-height: 1;
-}
-
-.titulo2 {
-    font-size: 64px;
-    font-weight: 800;
-    color: #ffb800; /* Amarelo da imagem */
-    margin: 0;
-    line-height: 1;
-}
-
-.subtitulo {
-    font-size: 18px;
+.titulo-cantinas {
+    font-size: 32px;
     font-weight: 700;
+    margin-bottom: -5px;
+}
+
+.titulo-carvalho {
+    font-size: 56px;
+    font-weight: 800;
+    color: #ffb800; /* Amarelo ouro */
+    margin-bottom: 10px;
+}
+
+.subtitulo-banner {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* --- BOTÃO ESTILO PÍLULA --- */
+.btn-cardapio-banner {
+    background-color: #F6F1E6;
     color: #5d2a18;
-    margin-top: 15px;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cardapio-banner:hover {
+    transform: scale(1.05);
 }
 
 /* 3. Imagem do Lanche */
 .banner-img {
-    flex: 1.2;
+    flex: 1;
     display: flex;
     justify-content: flex-end;
 }
 
 .banner-img img {
-    width: 110%; /* Para dar o efeito de destaque */
-    max-width: 600px;
-    height: auto;
-    /* Ajuste para a imagem "vazar" levemente para a direita como no layout */
-    transform: translateX(30px); 
+    width: 120%; /* Aumenta o tamanho para o efeito de destaque */
+    max-width: 550px;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+    /* A mágica do "vazamento" */
+    position: absolute;
+    right: -20px; 
+    bottom: -10px;
+    padding: 15px;
 }
 
 /* Responsividade Básica */
 @media (max-width: 768px) {
-    .secao-banner {
-        flex-direction: column-reverse; /* No celular, o lanche pode ficar em cima ou embaixo */
+    .banner-box {
+        flex-direction: column; /* No celular, o lanche pode ficar em cima ou embaixo */
         text-align: center;
+        padding: 40px 20px;
+        overflow: hidden;
     }
     .banner-textos { text-align: center; }
-    .banner-img img { transform: none; width: 100%; }
+    .banner-img img { position: static; width: 100%; margin-top: 20px; }
+    .btn-cardapio-banner{margin: 0 auto;}
 }
 /* --- 3. SEÇÃO CARDÁPIO (TRILHO / CARROSSEL) --- */
 .cardapio-box {
@@ -127,41 +175,6 @@ body {
     padding: 20px;
     box-shadow: 0 4px 15px var(--shadow);
     margin-bottom: 40px;
-}
-
-.trilho {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto; /* Permite o deslize horizontal */
-    scroll-behavior: smooth;
-    padding: 10px 0;
-    -webkit-overflow-scrolling: touch;
-}
-
-/* Esconde a barra de rolagem */
-.trilho::-webkit-scrollbar {
-    display: none;
-}
-
-.item-mini {
-    flex: 0 0 auto;
-}
-
-.card-thumb {
-    position: relative;
-    width: 85px;  /* Tamanho exato da sua referência */
-    height: 85px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px var(--shadow);
-    cursor: pointer;
-}
-
-.card-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
 }
 
 /* LEGENDA QUE SOBE NO HOVER */
@@ -283,30 +296,82 @@ body {
 
 .btn-carrinho:active { transform: scale(0.9); }
 
-/* --- 5. MENU INFERIOR FIXO --- */
-/* Container da Grid */
-.categorias-grid {
-    display: grid;
-    /* Cria 3 colunas de tamanhos iguais */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; /* Espaço entre os quadrados */
-    padding: 20px;
-    max-width: 600px; /* Ajuste conforme o centro do seu site */
-    margin: 0 auto; /* Centraliza a grid toda */
+/* --- 5. MENU DE CATEGORIAS (Estilo Pílulas e Carrinho) --- */
+.categorias-container {
+    display: flex;
+    justify-content: center; /* Centraliza o menu na tela */
+    align-items: center;
+    gap: 15px;
+    padding: 40px;
+    width: 100%;
+    overflow-x: auto; /* Permite rolar no celular */
 }
 
-/* O Quadrado Bege */
-.card-categoria {
-    background-color: #EBE6D7; /* Bege claro da imagem */
+.btn-filtro {
+    background-color: var(--bege-botao);
+    color: var(--marrom-box);
     border: none;
-    aspect-ratio: 1 / 1; /* Garante que seja sempre um quadrado perfeito */
-    border-radius: 20px; /* Cantos arredondados */
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px var(--shadow);
+    height: 45px;
+}
+
+.btn-filtro.active, .btn-filtro:hover, .btn-carrinho-menu:hover {
+    background-color: #3d1c10;
+    color: #F6F1E6;
+}
+
+.secao-produtos {
+    padding: 30px 50px; /* Aumenta o respiro lateral igual ao seu print */
+    max-width: 1400px;  /* Limita a largura para os cards não esticarem infinito */
+    margin: 0 auto;
+}
+
+/* Botão do Carrinho com Badge */
+.btn-carrinho-menu {
+    background-color: var(--bege-botao);
+    color: var(--marrom-box);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px var(--shadow);
+    height: 45px;
+}
+
+.icon-carrinho {
+    width: 24px;
+    height: auto;
+    background-color: var(--bege-botao);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra bem sutil */
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    min-width: 65px;
+    margin-top: -10px;
+}
+
+.badge {
+     background-color: var(--bege-botao);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    min-width: 65px;
 }
 
 .card-categoria:hover {
@@ -320,6 +385,119 @@ body {
     height: auto;
     /* Se os seus ícones forem coloridos e você quiser esse tom de bege escuro da foto: */
     filter: sepia(0.3) saturate(0.5) opacity(0.6);
+}
+
+.secao-almoco {
+    width: 100%;
+    padding: 20px 40px;
+    padding: 30px 50px; /* Aumenta o respiro lateral igual ao seu print */
+    max-width: 1400px;  /* Limita a largura para os cards não esticarem infinito */
+    margin: 0 auto;
+}
+
+.secao-bebidas {
+    width: 100%;
+    padding: 20px 40px;
+    padding: 30px 50px; /* Aumenta o respiro lateral igual ao seu print */
+    max-width: 1400px;  /* Limita a largura para os cards não esticarem infinito */
+    margin: 0 auto;
+}
+
+.secao-sobremesas {
+    width: 100%;
+    padding: 20px 40px;
+    padding: 30px 50px; /* Aumenta o respiro lateral igual ao seu print */
+    max-width: 1400px;  /* Limita a largura para os cards não esticarem infinito */
+    margin: 0 auto;
+}
+
+.secao-doces {
+    width: 100%;
+    padding: 20px 40px;
+    padding: 30px 50px; /* Aumenta o respiro lateral igual ao seu print */
+    max-width: 1400px;  /* Limita a largura para os cards não esticarem infinito */
+    margin: 0 auto;
+}
+
+.grid-lanches {
+    display: grid;
+    /* Tenta colocar o máximo de cards de 220px por linha. 
+       Em telas grandes, dará 5 ou 6. Em telas menores, diminui sozinho. */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 25px; 
+    margin-top: 30px;
+}
+
+/* Ajuste para telas menores (Responsividade) */
+@media (max-width: 1200px) {
+    .grid-lanches {
+        grid-template-columns: repeat(3, 1fr); /* 3 por fileira em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-lanches {
+        grid-template-columns: repeat(2, 1fr); /* 2 por fileira em celulares */
+    }
+}
+
+.card-lanche {
+    background-color: #EBE6D7; /* Bege do print */
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.card-lanche:hover {
+    transform: translateY(-5px);
+}
+
+.card-lanche img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px; /* Bordas internas da imagem */
+    margin-bottom: 12px;
+}
+
+/* Informações e Botão dentro do card */
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.texto h3 {
+    font-size: 16px;
+    color: var(--marrom-box);
+    margin-bottom: 4px;
+}
+
+.texto p {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+/* Botão de adicionar redondo do print */
+.btn-add-carrinho {
+    background-color: #DED5C0;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-add-carrinho img {
+    width: 18px;
+    height: auto;
+    margin: 0; /* Remove margens da imagem interna */
 }
 
 /* Responsividade: No celular fica com 2 ou 3 colunas? */
@@ -365,10 +543,10 @@ body.tema-escuro .icon-item img:not(.classe-logo) {
 }
 /* --- 6. BOTÃO DARK MODE --- */
 .botao-escuro {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+   
     z-index: 1100;
+    display: flex;
+    align-items: center;
 }
 
 .checkbox { opacity: 0; position: absolute; }
@@ -418,5 +596,5 @@ body.tema-escuro .icon-item img:not(.classe-logo) {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
     
-    .titulo { font-size: 32px; }
+    .titulo { font-size: 32px; border-bottom: 2px solid #DED5C0; /* Linha sutil abaixo do título */ }
 }
