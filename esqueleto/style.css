@@ -11,7 +11,7 @@
 }
 
 body.tema-escuro {
-    --bg-body: #1a110e;
+    --bg-body: #3d1507;
     --bg-card: #2d1d17;
     --text-color: #f5f1e6;
     --shadow: rgba(0, 0, 0, 0.4);
@@ -49,21 +49,27 @@ body {
 
 .header-esquerda {
     display: flex;
-    align-items: center;
-    gap: 15px; /* Espaço entre a seta e a logo */
+    align-items: center; /* Centraliza verticalmente a seta com a logo */
+    gap: 15px;
 }
 .seta-voltar{
     width: 28px;
     height: auto;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: -5px; 
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.seta-voltar:hover {
+    transform: translateX(-5px);
+    opacity: 1;
 }
 
 .logo-principal {
     width: 100px; 
     height: auto;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: -10px;
 }
 
 /* 2. Banner Principal (Textos e Lanche) */
@@ -136,6 +142,16 @@ body {
 
 .btn-cardapio-banner:hover {
     transform: scale(1.05);
+}
+
+.btn-cardapio-banner img {
+    width: 20px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Se a sua imagem original for escura, ela já aparecerá marrom aqui */
+}
+
+.btn-cardapio-banner:hover img {
+    transform: translateX(5px); /* A setinha dá um pulinho para a direita */
 }
 
 /* 3. Imagem do Lanche */
@@ -252,11 +268,11 @@ body {
 }
 
 .card-lanche {
-    background: var(--bg-card);
+    background-color: var(--bg-card); /* Mude de #2d1d17 para a variável */
     border-radius: 20px;
     padding: 12px;
-    box-shadow: 0 4px 15px var(--shadow);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow); /* Use a variável de sombra também */
+    transition: transform 0.3s ease, background-color 0.4s ease; /* Adicione transition para o fundo */
 }
 
 .card-lanche:hover {
@@ -277,7 +293,11 @@ body {
     margin-top: 10px;
 }
 
-.texto h3 { font-size: 14px; margin: 0; font-weight: bold; }
+.texto h3 {
+    font-size: 16px;
+    color: var(--text-color); /* Mude para var(--text-color) */
+    margin-bottom: 4px;
+}
 .texto p { font-size: 11px; margin: 0; opacity: 0.7; }
 
 .btn-carrinho {
@@ -308,22 +328,25 @@ body {
 }
 
 .btn-filtro {
-    background-color: var(--bege-botao);
-    color: var(--marrom-box);
+    /* Troque a cor fixa pela variável do card */
+    background-color: var(--bg-card); 
+    color: var(--text-color); /* Garante que o texto mude conforme o tema */
+    
     border: none;
     padding: 10px 25px;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
-    transition: 0.3s;
+    transition: all 0.3s ease; /* Transição suave para todas as propriedades */
     box-shadow: 0 4px 10px var(--shadow);
     height: 45px;
 }
 
-.btn-filtro.active, .btn-filtro:hover, .btn-carrinho-menu:hover {
-    background-color: #3d1c10;
-    color: #F6F1E6;
+/* Quando o botão estiver selecionado ou com mouse em cima */
+.btn-filtro.active, .btn-filtro:hover {
+    background-color: var(--btn-toggle); /* Inverte a cor para dar destaque */
+    color: var(--indicador); /* Usa a cor do indicador (bege no escuro / marrom no claro) */
 }
 
 .secao-produtos {
@@ -334,17 +357,26 @@ body {
 
 /* Botão do Carrinho com Badge */
 .btn-carrinho-menu {
-    background-color: var(--bege-botao);
-    color: var(--marrom-box);
+    background-color: var(--bg-card); /* Mesma cor dos cards */
+    color: var(--text-color);        /* Texto/Ícone na cor do tema */
     border: none;
     padding: 10px 25px;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     box-shadow: 0 4px 10px var(--shadow);
     height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efeito de Hover/Ativo para o Carrinho */
+.btn-carrinho-menu:hover {
+    background-color: var(--btn-toggle);
+    color: var(--indicador);
 }
 
 .icon-carrinho {
@@ -359,7 +391,6 @@ body {
     align-items: center;
     cursor: pointer;
     min-width: 65px;
-    margin-top: -10px;
 }
 
 .badge {
@@ -442,11 +473,11 @@ body {
 }
 
 .card-lanche {
-    background-color: #EBE6D7; /* Bege do print */
+    background-color: var(--bg-card); /* Usa o bege no claro e marrom no escuro */
     border-radius: 20px;
     padding: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform 0.3s ease, background-color 0.4s ease;
 }
 
 .card-lanche:hover {
@@ -470,19 +501,20 @@ body {
 
 .texto h3 {
     font-size: 16px;
-    color: var(--marrom-box);
+    color: var(--text-color); /* ISSO É O MAIS IMPORTANTE: Muda de marrom para bege */
     margin-bottom: 4px;
 }
 
 .texto p {
     font-size: 12px;
-    color: #888;
+    color: var(--text-color); /* Deixa a descrição legível também */
+    opacity: 0.7; /* Dá um toque suave na descrição */
     margin: 0;
 }
 
 /* Botão de adicionar redondo do print */
 .btn-add-carrinho {
-    background-color: #DED5C0;
+    background-color: var(--btn-toggle); /* Inverte a cor do botão redondo */
     border: none;
     width: 35px;
     height: 35px;
@@ -491,7 +523,6 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .btn-add-carrinho img {
@@ -525,8 +556,33 @@ body {
 /* Inverter cores dos ícones no modo escuro para ficarem brancos */
 /* Filtra todos, exceto a classe .logo-img */
 /* Isso diz: "Inverta a cor de todas as imagens do menu, EXCETO a que tem a classe-logo" */
-body.tema-escuro .icon-item img:not(.classe-logo) {
+body.tema-escuro .icon-item img:not(.classe-logo) .btn-add-carrinho img .icon-carrinho{
     filter: brightness(0) invert(1);
+}
+
+body.tema-escuro .banner-box {
+    background-color: #F6F1E6 !important; /* Cor bege clara fixada aqui */
+    transition: background-color 0.4s ease;
+}
+
+body.tema-escuro .banner-textos {
+    color: #5d2a18 !important; /* Texto marrom escuro fixado aqui */
+}
+
+body.tema-escuro .btn-cardapio-banner {
+    background-color: #5d2a18 !important;
+    color: #F6F1E6 !important;
+}
+
+/* No modo escuro: a seta "acende" em bege para combinar com o texto */
+body.tema-escuro .seta-voltar {
+    /* Esse filtro transforma ícones pretos/escuros em Bege (#F6F1E6) */
+    filter: brightness(0) invert(1); 
+    opacity: 0.9; /* Deixa um pouco mais suave para não cansar a vista */
+}
+
+body.tema-escuro .btn-cardapio-banner img {
+    filter: brightness(0) invert(1); 
 }
 
 /* Garante que a logo mantenha as cores originais e o tamanho correto */
@@ -597,4 +653,42 @@ body.tema-escuro .icon-item img:not(.classe-logo) {
     }
     
     .titulo { font-size: 32px; border-bottom: 2px solid #DED5C0; /* Linha sutil abaixo do título */ }
+}
+
+#btnSubir {
+    display: none;        /* Começa escondido */
+    position: fixed;      /* Fica fixo na tela */
+    bottom: 30px;         /* Distância do fundo */
+    right: 30px;          /* Distância da direita */
+    z-index: 9999;        /* Fica em cima de tudo */
+    background-color: var(--btn-toggle);
+    color: var(--indicador);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+#btnSubir:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+#btnSubir img {
+    width: 20px;
+    /* Se a seta for preta e o botão escuro, inverta a cor da imagem */
+    filter: brightness(0) invert(1); 
+}
+
+body.tema-escuro #btnSubir {
+    background: rgba(246, 241, 230, 0.15) !important; /* Bege bem transparente */
+    backdrop-filter: blur(10px); /* Desfoca o que está atrás */
+    border: 1px solid rgba(246, 241, 230, 0.3);
+}
+
+body.tema-escuro #btnSubir img {
+    filter: brightness(0) invert(1) !important; /* Seta fica branca cristalina */
 }

@@ -65,3 +65,41 @@ function mostrarCategoria(btn, categoria) {
         }
     });
 }
+
+// Pega o botão pelo ID
+const btnSubir = document.getElementById("btnSubir");
+
+// Quando o usuário rolar a página 300px para baixo, mostra o botão
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btnSubir.style.display = "block";
+    } else {
+        btnSubir.style.display = "none";
+    }
+};
+
+// Função que faz o scroll suave para o topo
+function subirTopo() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Faz o efeito de subir deslizando
+    });
+}
+
+function abrirPeloBanner(categoria) {
+    // 1. Procura o botão de filtro que contém o texto ou o evento da categoria
+    // Isso garante que o botão de Almoço lá embaixo também fique com a cor ativa
+    const botaoFiltroReal = document.querySelector(`button[onclick*="'${categoria}'"]`);
+
+    if (botaoFiltroReal) {
+        // 2. Chama a sua função principal de mostrar categoria
+        // Isso vai disparar o scroll, a mudança de cor e o posicionamento
+        mostrarCategoria(botaoFiltroReal, categoria);
+    } else {
+        // Caso o botão não seja encontrado, apenas faz o scroll até a seção
+        const secao = document.getElementById('secao-' + categoria);
+        if (secao) {
+            secao.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+}
